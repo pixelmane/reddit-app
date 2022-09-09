@@ -1,6 +1,12 @@
-
+import { useEffect } from "react"
+import { useDispatch } from 'react-redux'; 
+import { storyGrabber } from './storySlice.js'
 
 export function Story() {
+    let dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(storyGrabber('mom'))
+    },[])
     return (
         <div className='storyBox'>
            
@@ -14,7 +20,7 @@ export function Story() {
             <h1 className='title'>Title: moms are coming fast! and thre are more of them than there are of you</h1>
             </div>
             <div className='storyImage' style={{  
-  backgroundImage: "url(" + "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" + ")",
+  backgroundImage: "url(" + "https://images.pexels.com/photos/34153/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350" + ")"
 
 }}></div>
             <div className='bottomStoryBox'>

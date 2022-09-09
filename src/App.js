@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { Story } from './storyBuilder.js'
 function App() {
@@ -17,7 +17,7 @@ function App() {
               </select></div>
      </div>
         <div id='scrollCont'>
-          <Story />
+         <Story />
           <div className='storyBox'>
            
             <div className='rightStoryBox'>
