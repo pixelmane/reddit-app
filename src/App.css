@@ -1,7 +1,54 @@
 .App {
   text-align: center;
 }
+:root{
+  --web-scale-on-resize: true;
+margin: 0 auto;
 
+font-family: Helvetica Neue;
+}
+#navBar {
+  position: fixed;
+  background-color: white;
+  top: 0px;
+  width: 100%;
+margin: 0 auto;
+  display: flex;
+  align-items: center;
+  font-family: Helvetica Neue;
+  
+  height: 100px;
+  box-shadow: 0 0 10px 0 grey;
+}
+#dropSearch {
+  flex: 2;
+ 
+  text-align: right;
+  margin-right: 10px
+  
+}
+select {
+  color: grey;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid grey;
+}
+
+#reddit {
+  font-size: 30px;
+  margin-left: 15px;
+  color: rgb(255, 109, 109);
+}
+#logoHolder {
+  background-image: url('./redditlogo.png');
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+  margin-left: 10px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -23,7 +70,9 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+h1 {
+  font-size: 40px;
+}
 .App-link {
   color: #61dafb;
 }
@@ -35,4 +84,65 @@
   to {
     transform: rotate(360deg);
   }
+}
+#scrollCont {
+  margin-top: 120px;
+  
+  background-color:white;
+  width: 100%
+}
+.topStoryBox {
+  display: flex;
+  align-items: center;
+}
+.storyBox {
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 0px 5px grey;
+  margin: 20px 20px;
+  background-color: white;
+}
+.leftStoryBox {
+  margin-left: 10px;
+  margin-right: 20px;
+  
+}
+.leftStoryBox h2 {
+  margin: 0;
+  padding: 0;
+}
+.topArrow {
+  color: green;
+}
+.bottomArrow {
+  color: red;
+  transform: rotate(180DEG);
+}
+.storyImage {
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+ width: 95%;
+ height: 300px;
+  margin: 0 auto;
+  
+  
+}
+.title {
+  text-align: left;
+  font-size: 25px;
+
+}
+
+.bottomStoryBox {
+  display: flex;
+  font-size: 10px;
+  justify-content: space-between;
+  border-top: .5px solid grey;
+  margin: 10px auto;
+  width: 95%;
+}
+h2 {
+  margin-top: 0px;
 }
