@@ -105,11 +105,13 @@ h1 {
 .leftStoryBox {
   margin-left: 10px;
   margin-right: 20px;
+ 
   
 }
 .leftStoryBox h2 {
   margin: 0;
   padding: 0;
+  
 }
 .topArrow {
   color: green;
@@ -132,9 +134,12 @@ h1 {
 .title {
   text-align: left;
   font-size: 25px;
+  
 
 }
-
+.rightStoryBox {
+  width: 100%;
+}
 .bottomStoryBox {
   display: flex;
   font-size: 10px;

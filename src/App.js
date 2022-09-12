@@ -1,22 +1,32 @@
 
 import './App.css';
-import { Story } from './storyBuilder.js'
+import { Story, StoryFactory } from './storyBuilder.js'
+import storySlice from './storySlice';
+import { changeSubject } from './storySlice.js'
+import { useDispatch } from 'react-redux';
+
 function App() {
+  const dispatch = useDispatch()
+  function handleChange(e){
+    console.log('subject is changing')
+    dispatch(changeSubject(e.target.value))
+  }
   return (
     <div className="App">
       
         <div id='navBar'>
           <div id='logoHolder'></div><h1 id='reddit'>Reddit Client</h1>
           <div id='dropSearch'>
-              <select>
-                <option>r/popular</option>
-                <option>r/popular</option>
-                <option>r/popular</option>
-                <option>r/popular</option>
-                <option>r/popular</option>
+              <select onChange={handleChange}>
+                <option value='popular'>r/popular</option>
+                <option value='nintendo'>r/nintendo</option>
+                <option value='walmart'>r/walmart</option>
+                <option value='pets'>r/pets</option>
+                <option value='memes'>r/memes</option>
               </select></div>
      </div>
         <div id='scrollCont'>
+          <StoryFactory />
          <Story />
           <div className='storyBox'>
            

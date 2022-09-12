@@ -3,8 +3,10 @@ import storyReducer from './storySlice.js'
 
 
 const store = configureStore({
-    reducer: storyReducer,
-})
+    reducer: {
+        stories: storyReducer,
+    }
+    })
 
 
 export default store;
