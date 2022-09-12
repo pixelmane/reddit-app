@@ -59,7 +59,33 @@ select {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+#postTitle {
+  color: green;
+  opacity: 1;
+}
+#selectedPostContainer {
+  
+  position: fixed;
+  top: 50px;
+  margin: 0px 25px;
+}
+#backgroundBlackout {
+  position: fixed;
+  top: 0px;
+  
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  opacity: .4;
+}
+.clickBox {
+  position: absolute;
+  opacity: 0;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  border: 5px solid red;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

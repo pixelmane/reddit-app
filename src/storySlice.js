@@ -6,7 +6,7 @@ export const storyGrabber = createAsyncThunk('story/loadStories',
     console.log('thunk accessed')
     let storyData = await fetch(`https://www.reddit.com/r/${arg}.json`)
     let json = await storyData.json();
-   
+   console.log(json.data.children)
     return json.data.children
 } 
 )
@@ -20,6 +20,7 @@ const storyReducer = createSlice({
     reducers: {
         changeSubject: (state, action) => {
             console.log('looking to add a story, eh?')
+            state.subject = action.payload
         }
     },
     extraReducers: {
@@ -38,7 +39,8 @@ const storyReducer = createSlice({
                     votes: storyArray[i].data.ups,
                     comments: storyArray[i].data.num_comments,
                     timeOfPost: storyArray[i].data.created,
-                    image: storyArray[i].data.thumbnail
+                    image: storyArray[i].data.thumbnail,
+                    body: storyArray[i].data.selftext
                 })
             }
             console.log(gatheredStories)

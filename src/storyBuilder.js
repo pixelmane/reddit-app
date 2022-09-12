@@ -1,28 +1,33 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux'; 
+import { Link } from "react-router-dom";
 import { storyGrabber } from './storySlice.js'
 export function StoryFactory(){
     const storiesListed = useSelector(state => state.stories.stories)
     return(
-        <div>
-            {storiesListed.map(element => <Story 
-                                                author={element.author} 
-                                                title={element.title} 
-                                                votes={element.votes}  
-                                                timeOfPost={element.timeOfPost}
-                                                comments={element.comments}
-                                                image={element.image}
-                                                />)}
-        </div>
+        
+            <div>
+                {storiesListed.map(element => <Story 
+                                                    author={element.author} 
+                                                    title={element.title} 
+                                                    votes={element.votes}  
+                                                    timeOfPost={element.timeOfPost}
+                                                    comments={element.comments}
+                                                    image={element.image}
+                                                    body={element.body}
+                                                    />)}
+            </div>
+        
     )
 }
-export function Story( { author, title, votes, timeOfPost, comments, image } ) {
+export function Story( { body, author, title, votes, timeOfPost, comments, image } ) {
     const storiesListed = useSelector(state => state.stories.stories)
+    const subjectSelection = useSelector(state => state.stories.subject)
     const subject = useSelector(state => state.stories.subject)
     let dispatch = useDispatch();
     useEffect(() => {
         dispatch(storyGrabber(subject))
-    },[])
+    },[subjectSelection])
     function handleClick() {
         console.log(storiesListed)
     }
@@ -54,7 +59,7 @@ export function Story( { author, title, votes, timeOfPost, comments, image } ) {
     }
     return (
         <div className='storyBox'>
-            
+            <Link to={`${title}`} state={{ body: `${body}`, image: `${image}`, title: `${title}`, votes: `${votes}`, author: `${author}`, comments: `${comments}` }}><div className='clickBox'></div></Link>
             <div className='rightStoryBox'>
             <div className='topStoryBox'>
             <div className='leftStoryBox'>
@@ -70,5 +75,6 @@ export function Story( { author, title, votes, timeOfPost, comments, image } ) {
             </div>
             </div>         
           </div> 
+          
     )
 }
