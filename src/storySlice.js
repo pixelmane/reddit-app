@@ -64,14 +64,18 @@ const storyReducer = createSlice({
             console.log('stories grabbed')
             let storyArray = action.payload;
             for (let i = 0; i < storyArray.length; i++){
-                
+               // let imaged = storyArray[i].data.preview.images[0].source.url ? decodeComponentURI(storyArray[i].data.preview.images[0].source.url) : null
+                console.log(storyArray[i].data.preview)
+                let imaged = storyArray[i].data.preview ? storyArray[i].data.preview.images[0].source.url : 'we bad'
+                let urlImage = imaged.replace(/&amp;/g,"&")
+                console.log(imaged.replace(/&amp;/g,"&"))
                 gatheredStories.push({
                     author: storyArray[i].data.author,
                     title: storyArray[i].data.title,
                     votes: storyArray[i].data.ups,
                     comments: storyArray[i].data.num_comments,
                     timeOfPost: storyArray[i].data.created,
-                    image: storyArray[i].data.thumbnail,
+                    image: urlImage,
                     body: storyArray[i].data.selftext,
                     permalink: storyArray[i].data.permalink
                 })

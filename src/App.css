@@ -196,13 +196,24 @@ h1 {
   color: red;
   transform: rotate(180DEG);
 }
-.storyImage {
+.storyImageMain {
   border-radius: 10px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
  width: 95%;
  height: 300px;
+  margin: 0 auto;
+  
+  
+}
+.storyImageSelected {
+  border-radius: 10px;
+  background-position: center;
+  background-size:contain;
+  background-repeat: no-repeat;
+ width: 95%;
+ height: 500px;
   margin: 0 auto;
   
   
@@ -275,8 +286,12 @@ margin-left: 10px;
   align-items: center;
 }
 .authorBody {
-  margin: 10px;
   
+  margin: 10px;
+  text-overflow: clip;
+  
+  white-space: hidden;
+  word-break:keep-all;
 }
 
 .votes {

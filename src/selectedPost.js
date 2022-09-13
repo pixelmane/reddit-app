@@ -11,7 +11,8 @@ function SelectedPost() {
         if(image.length > 10){
             style = {
                 // eslint-disable-next-line
-                backgroundImage: "url(" + `${image}` + ")"
+                backgroundImage: "url(" + `${image}` + ")",
+                
             }
         } else {
             style = {
@@ -52,7 +53,7 @@ function SelectedPost() {
             
             </div>
             <h2 style={{marginLeft: '20%',fontSize: '15px', fontWeight: '100', color: 'black'}}>Posted by u/{author}  {timeSince(timeOfPost)} hours ago</h2>
-            <div className='storyImage' style={style}></div>
+            <div className='storyImageSelected' style={style}></div>
             <div className='bottomStoryBox'>
             <div>{body}</div>
               

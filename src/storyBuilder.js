@@ -78,7 +78,7 @@ export function Story( { permalink, body, author, title, votes, timeOfPost, comm
             </div>
             <h1 className='title' style={{fontSize: '20px'}}>{title}</h1>
             </div>
-            <div className='storyImage' style={style}></div>
+            <div className='storyImageMain' style={style}></div>
             
             <div className='bottomStoryBox'>
               <h2 style={{fontWeight: '400'}}>{author}</h2><h2 style={{fontWeight: '300', fontStyle: 'italic'}}>{timeSince(timeOfPost) > 1 ? timeSince(timeOfPost) : 'less than 1'} hours ago</h2><h2 style={{fontWeight: '300'}}>{comments} comments</h2>
