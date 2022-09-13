@@ -1,7 +1,7 @@
 
 import './App.css';
 import { Story, StoryFactory } from './storyBuilder.js'
-import storySlice from './storySlice';
+
 import { changeSubject } from './storySlice.js'
 import { useDispatch } from 'react-redux';
 
