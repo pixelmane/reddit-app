@@ -13,6 +13,7 @@ export const storyGrabber = createAsyncThunk('story/loadStories',
 export const commentGrabber = createAsyncThunk('story/loadComments', 
     async (arg) => {
         console.log(arg)
+        // eslint-disable-next-line
         let commentData = await fetch(`https://www.reddit.com` + `${arg}` + `.json`)
         let json = await commentData.json();
         console.log('here is the data')
