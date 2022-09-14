@@ -22,7 +22,7 @@ export function StoryFactory(){
         
     )
 }
-export function Story( { permalink, body, author, title, votes, timeOfPost, comments, image } ) {
+function Story( { permalink, body, author, title, votes, timeOfPost, comments, image } ) {
     
     const subjectSelection = useSelector(state => state.stories.subject)
     const searchTerm = useSelector(state => state.stories.searchTerm)

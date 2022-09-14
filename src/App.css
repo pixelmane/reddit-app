@@ -76,9 +76,7 @@ input {
   color: rgb(255, 109, 109);
   ;
 }
-#searchBarContainerContainer {
-  
-}
+
 @media only screen and (max-width: 600px) {
   #searchBarContainerContainer {
     position:fixed;
@@ -315,7 +313,7 @@ h2 {
   
 }
 .authorLogo {
-  background-image: url('./redditlogo.png');
+ 
   height: 30px;
   width: 30px;
   background-size:cover;
@@ -343,12 +341,7 @@ margin-left: 10px;
 .authorBody {
   
   margin: 10px;
-  text-overflow:ellipsis;
-  overflow-wrap:normal;
-  word-break: break-all;
-  
-  
-  overflow: hidden;
+  word-wrap: break-word;
  
 
   
