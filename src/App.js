@@ -31,7 +31,7 @@ function App() {
      
         <div id='scrollCont'>
           <StoryFactory />
-          
+          <Story />
           </div>
         
     </div>
