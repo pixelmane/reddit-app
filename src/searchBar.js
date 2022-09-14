@@ -9,9 +9,12 @@ export function SearchBar() {
         setTerm(e.target.value)
         
     }
+    
     useEffect(() => {
         dispatch(filterTopics(term))
-    }, [term])
+    }, 
+    // eslint-disable-next-line 
+    [term])
     return (
         <div id="searchBarContainerContainer">
             <div id='searchBarContainer'>
