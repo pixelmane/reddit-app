@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { storyGrabber, commentGrabber } from './storySlice.js'
 
 export function StoryFactory(){
-    const storiesListed = useSelector(state => state.stories.stories)
+    const storiesListed = useSelector(state => state.stories.shownStories)
     return(
         
             <div>
@@ -25,6 +25,7 @@ export function StoryFactory(){
 export function Story( { permalink, body, author, title, votes, timeOfPost, comments, image } ) {
     
     const subjectSelection = useSelector(state => state.stories.subject)
+    const searchTerm = useSelector(state => state.stories.searchTerm)
     const subject = useSelector(state => state.stories.subject)
     let dispatch = useDispatch();
     useEffect(() => {
@@ -32,7 +33,7 @@ export function Story( { permalink, body, author, title, votes, timeOfPost, comm
         dispatch(storyGrabber(subject))
     },
     // eslint-disable-next-line
-    [subjectSelection])
+    [subjectSelection, searchTerm])
    
     let style = {}
     if(image !== undefined){

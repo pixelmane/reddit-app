@@ -24,14 +24,22 @@ export const commentGrabber = createAsyncThunk('story/loadComments',
 const storyReducer = createSlice({
     name: 'story',
     initialState: {
+        searchTerm: '',
         subject: 'popular',
         stories: [],
+        shownStories: [],
+        filteredStories: [],
         comments: []
     },
     reducers: {
         changeSubject: (state, action) => {
             console.log('looking to add a story, eh?')
             state.subject = action.payload
+            state.searchTerm = ''
+        },
+        filterTopics: (state, action) => {
+            state.searchTerm = action.payload
+            
         }
     },
     extraReducers: {
@@ -77,16 +85,18 @@ const storyReducer = createSlice({
                     timeOfPost: storyArray[i].data.created,
                     image: urlImage,
                     body: storyArray[i].data.selftext,
-                    permalink: storyArray[i].data.permalink
+                    permalink: storyArray[i].data.permalink,
+                    
                 })
             }
             console.log(gatheredStories)
             state.stories = gatheredStories
+            state.shownStories = gatheredStories.filter(element => element.title.toLowerCase().includes(state.searchTerm.toLowerCase()))
         },
         [storyGrabber.pending]: (state, action) => {
             console.log('loading')
         }
     }
 })
-export const { changeSubject } = storyReducer.actions;
+export const { changeSubject, filterTopics } = storyReducer.actions;
 export default storyReducer.reducer; 
