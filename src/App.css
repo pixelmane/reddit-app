@@ -3,6 +3,7 @@
   
 }
 :root{
+  
   box-sizing: border-box;
  padding: 0px;
 margin: 0 auto;
@@ -69,10 +70,11 @@ input {
   right: 0;
 }
 #reddit {
-  font-size: 30px;
+  font-size: min(6vw, 40px);
+  
   margin-left: 15px;
   color: rgb(255, 109, 109);
-  
+  ;
 }
 #searchBarContainerContainer {
   
