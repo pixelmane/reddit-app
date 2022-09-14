@@ -1,7 +1,7 @@
 
 import './App.css';
 import {  StoryFactory } from './storyBuilder.js'
-//import { Story } from './storyBuilder.js';
+import { Story } from './storyBuilder.js';
 import { changeSubject } from './storySlice.js'
 import { useDispatch } from 'react-redux';
 import { SearchBar } from './searchBar';
@@ -31,7 +31,7 @@ function App() {
      
         <div id='scrollCont'>
           <StoryFactory />
-        
+          
           </div>
         
     </div>
