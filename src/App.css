@@ -16,6 +16,7 @@ font-family: Helvetica Neue;
   width: 100%;
   margin: 0 auto;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   font-family: Helvetica Neue;
   z-index: 99;
@@ -23,10 +24,10 @@ font-family: Helvetica Neue;
   box-shadow: 0 0 10px 0 grey;
 }
 #dropSearch {
-  flex: 2;
- 
   
-  margin-right: 10px
+  text-align: right;
+  
+  margin-right: 30px
   
 }
 select {
@@ -34,15 +35,66 @@ select {
   width: 100px;
   height: 30px;
   border-radius: 5px;
-  text-align: center;
+  
   background-color: white;
   border: 1px solid grey;
 }
 
+#searchBarContainer {
+  display: flex;
+  
+  
+  color: grey;
+  
+  height: 30px;
+  border-radius: 5px;
+  text-align: center;
+  
+  border: 1px solid grey;
+}
+input {
+  background-color: transparent;
+  width: 100%;
+}
+#searchBar {
+  border: none;
+  
+}
+#searchBarOverlay {
+  background-color: rgba(145, 145, 145, 0.3);
+  position:absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
 #reddit {
   font-size: 30px;
   margin-left: 15px;
   color: rgb(255, 109, 109);
+  
+}
+#searchBarContainerContainer {
+  
+}
+@media only screen and (max-width: 400px) {
+  #searchBarContainerContainer {
+    position:fixed;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 0 10px 0 grey;
+  }
+  #searchBarContainer {
+    
+    width: 70%;
+    margin: 0 auto;
+    
+  }
+  
 }
 #logoHolder {
   background-image: url('./redditlogo.png');
@@ -50,6 +102,7 @@ select {
   height: 50px;
   width: 50px;
   margin-left: 10px;
+  z-index: 200;
 }
 .App-logo {
   height: 40vmin;
@@ -288,10 +341,15 @@ margin-left: 10px;
 .authorBody {
   
   margin: 10px;
-  text-overflow: clip;
+  text-overflow:ellipsis;
+  overflow-wrap:normal;
+  word-break: break-all;
   
-  white-space: hidden;
-  word-break:keep-all;
+  
+  overflow: hidden;
+ 
+
+  
 }
 
 .votes {

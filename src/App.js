@@ -17,7 +17,12 @@ function App() {
     <div className="App">
       
         <div id='navBar'>
-          <div id='logoHolder'></div><h1 id='reddit'>Reddit Client</h1>
+          <div style={{display: 'flex', alignItems: 'center'}}><div id='logoHolder'></div><h1 id='reddit'>Reddit Client</h1></div>
+          <div id="searchBarContainerContainer">
+            <div id='searchBarContainer'>
+              <input id='searchBar' placeholder='search'></input>
+            </div>
+          </div>
           <div id='dropSearch'>
               <select onChange={handleChange}>
                 <option value='popular'>r/popular</option>
@@ -27,6 +32,7 @@ function App() {
                 <option value='memes'>r/memes</option>
               </select></div>
      </div>
+     
         <div id='scrollCont'>
           <StoryFactory />
          <Story />
