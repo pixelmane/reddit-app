@@ -104,8 +104,8 @@ export function Story( { video, mediaType, permalink, body, author, title, votes
                     src={image}
                     alt={title}
                     style={{
-                      maxWidth: "80vw",
-                      maxHeight: "80vh",
+                      maxWidth: "80%",
+                      maxHeight: "80%",
                     }}
                   />
                 </div>
@@ -121,8 +121,8 @@ export function Story( { video, mediaType, permalink, body, author, title, votes
                     controls
                     
                     style={{
-                      maxHeight: "70vh",
-                      maxWidth: "90vw",
+                      maxHeight: "70%",
+                      maxWidth: "90%",
                       width: "auto",
                       height: "auto",
                       margin: "0px",
