@@ -86,7 +86,7 @@ const storyReducer = createSlice({
                     body: storyArray[i].data.selftext,
                     permalink: storyArray[i].data.permalink,
                     mediaType: storyArray[i].data.post_hint,
-                    video: storyArray[i].data.media ? storyArray[i].data.media : undefined
+                    video: storyArray[i].data.media ? storyArray[i].data.media.reddit_video.fallback_url : undefined
                     
                 })
             }

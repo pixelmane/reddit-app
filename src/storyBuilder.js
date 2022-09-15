@@ -36,7 +36,7 @@ export function StoryFactory(){
     )
 }
 export function Story( { video, mediaType, permalink, body, author, title, votes, timeOfPost, comments, image } ) {
-    
+   console.log(video)
     const subjectSelection = useSelector(state => state.stories.subject)
     const searchTerm = useSelector(state => state.stories.searchTerm)
     const subject = useSelector(state => state.stories.subject)
@@ -87,7 +87,7 @@ export function Story( { video, mediaType, permalink, body, author, title, votes
     }
     return (
         <div className='storyBox'>
-            <Link onClick={() => handleClick(permalink)} to={`${title}`} state={{ timeOfPost: `${timeOfPost}`, body: `${body}`, image: `${image}`, title: `${title}`, votes: `${votes}`, author: `${author}`, comments: `${comments}` }}><div className='clickBox'></div></Link>
+            <Link onClick={() => handleClick(permalink)} to={`${title}`} state={{ video: `${video}`, mediaType: `${mediaType}`, timeOfPost: `${timeOfPost}`, body: `${body}`, image: `${image}`, title: `${title}`, votes: `${votes}`, author: `${author}`, comments: `${comments}` }}><div className='clickBox'></div></Link>
             <div className='rightStoryBox'>
             <div className='topStoryBox'>
             <div className='leftStoryBox'>
@@ -126,10 +126,11 @@ export function Story( { video, mediaType, permalink, body, author, title, votes
                       width: "auto",
                       height: "auto",
                       margin: "0px",
+                      
                     }}
                   >
                     <source
-                      src={video.reddit_video.fallback_url}
+                      src={video}
                       type="video/mp4"
                     />
                   </video>

@@ -5,26 +5,9 @@ import { Comments } from "./comments.js";
 
 function SelectedPost() {
     const location = useLocation()
-    let style = {}
-    const { timeOfPost, body, image, title, author, votes } = location.state
-    if(image !== undefined){
-        if(image.length > 10){
-            style = {
-                // eslint-disable-next-line
-                backgroundImage: "url(" + `${image}` + ")",
-                
-            }
-        } else {
-            style = {
-                
-                display: 'none'
-            }
-        }
-    } else {
-        style = {
-            display: 'none'
-        }
-    }
+    
+    const { video, mediaType, timeOfPost, body, image, title, author, votes } = location.state
+    
     function timeSince(timePosted){
         
         let dateFormatted = Date.now() / 1000
@@ -53,7 +36,46 @@ function SelectedPost() {
             
             </div>
             <h2 style={{marginLeft: '20%',fontSize: '15px', fontWeight: '100', color: 'black'}}>Posted by u/{author}  {timeSince(timeOfPost)} hours ago</h2>
-            <div className='storyImageSelected' style={style}></div>
+            {/*<div className='storyImageSelected' style={style}></div>*/}
+            {mediaType === "image" ? (
+                <div align="center">
+                  <img
+                    src={image}
+                    alt={title}
+                    style={{
+                      maxWidth: "80%",
+                      maxHeight: "80%",
+                    }}
+                  />
+                </div>
+              ) : mediaType === "hosted:video" && video ? (
+                <div
+                  align="center"
+                  style={{
+                    paddingLeft: "0px ",
+                    paddingRight: "0px ",
+                  }}
+                >
+                  <video
+                    controls
+                    autoPlay
+                    style={{
+                      maxHeight: "70%",
+                      maxWidth: "90%",
+                      width: "auto",
+                      height: "auto",
+                      margin: "0px",
+                    }}
+                  >
+                    <source
+                    
+                      src={video}
+                      type="video/mp4"
+                    />
+                  </video>
+                </div>
+              ) : mediaType === undefined ? null : null}
+
             <div className='bottomStoryBox'>
             <div>{body}</div>
               
