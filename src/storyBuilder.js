@@ -19,6 +19,7 @@ export function StoryFactory(){
         
             <div>
                 {storiesListed.map(element => <Story 
+
                                                     author={element.author} 
                                                     title={element.title} 
                                                     votes={element.votes}  
@@ -27,12 +28,14 @@ export function StoryFactory(){
                                                     image={element.image}
                                                     body={element.body}
                                                     permalink={element.permalink}
+                                                    mediaType={element.mediaType}
+                                                    video={element.video}
                                                     />)}
             </div>
         
     )
 }
-export function Story( { permalink, body, author, title, votes, timeOfPost, comments, image } ) {
+export function Story( { video, mediaType, permalink, body, author, title, votes, timeOfPost, comments, image } ) {
     
     const subjectSelection = useSelector(state => state.stories.subject)
     const searchTerm = useSelector(state => state.stories.searchTerm)
@@ -45,14 +48,19 @@ export function Story( { permalink, body, author, title, votes, timeOfPost, comm
     // eslint-disable-next-line
     [subjectSelection, searchTerm])
    
-    let style = {}
-    if(image !== undefined){
-        if(image.length > 10){
+   /* let style = {}
+    if(mediaType !== undefined){
+        if(mediaType === 'image'){
             style = {
                 // eslint-disable-next-line
                 backgroundImage: "url(" + `${image}` + ")"
+                
             }
-        } else {
+            
+        } else if (mediaType === 'hosted:video') {
+            return 
+        
+        }else {
             style = {
                 display: 'none'
             }
@@ -61,7 +69,7 @@ export function Story( { permalink, body, author, title, votes, timeOfPost, comm
         style = {
             display: 'none'
         }
-    }
+    }*/
     function timeSince(timePosted){
         
         let dateFormatted = Date.now() / 1000
@@ -89,8 +97,44 @@ export function Story( { permalink, body, author, title, votes, timeOfPost, comm
             </div>
             <h1 className='title' style={{fontSize: '20px'}}>{title}</h1>
             </div>
-            <div className='storyImageMain' style={style}></div>
-            
+           {/* <div className='storyImageMain' style={style}></div>*/}
+            {mediaType === "image" ? (
+                <div align="center">
+                  <img
+                    src={image}
+                    alt={title}
+                    style={{
+                      maxWidth: "80vw",
+                      maxHeight: "80vh",
+                    }}
+                  />
+                </div>
+              ) : mediaType === "hosted:video" && video ? (
+                <div
+                  align="center"
+                  style={{
+                    paddingLeft: "0px ",
+                    paddingRight: "0px ",
+                  }}
+                >
+                  <video
+                    controls
+                    
+                    style={{
+                      maxHeight: "70vh",
+                      maxWidth: "90vw",
+                      width: "auto",
+                      height: "auto",
+                      margin: "0px",
+                    }}
+                  >
+                    <source
+                      src={video.reddit_video.fallback_url}
+                      type="video/mp4"
+                    />
+                  </video>
+                </div>
+              ) : mediaType === undefined ? null : null}
             <div className='bottomStoryBox'>
               <h2 style={{fontWeight: '400'}}>{author}</h2><h2 style={{fontWeight: '300', fontStyle: 'italic'}}>{timeSince(timeOfPost) > 1 ? timeSince(timeOfPost) : 'less than 1'} hours ago</h2><h2 style={{fontWeight: '300'}}>{comments} comments</h2>
             </div>
