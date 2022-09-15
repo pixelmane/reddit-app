@@ -26,7 +26,6 @@ function App() {
                 <option value='walmart'>r/walmart</option>
                 <option value='pets'>r/pets</option>
                 <option value='memes'>r/memes</option>
-                <option value='fails'>r/fails</option>
                 <option value='wallstreetbets'>r/wallstreetbets</option>
                 <option value='art'>r/art</option>
                 <option value='nfl'>r/nfl</option>

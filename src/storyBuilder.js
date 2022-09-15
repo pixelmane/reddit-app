@@ -2,6 +2,8 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux'; 
 import { Link } from "react-router-dom";
 import { storyGrabber, commentGrabber } from './storySlice.js'
+import greenArrow from './green.png';
+import redArrow from './red.png';
 
 export function StoryFactory(){
     const subjectSelection = useSelector(state => state.stories.subject)
@@ -30,12 +32,13 @@ export function StoryFactory(){
                                                     permalink={element.permalink}
                                                     mediaType={element.mediaType}
                                                     video={element.video}
+                                                    url={element.url}
                                                     />)}
             </div>
         
     )
 }
-export function Story( { video, mediaType, permalink, body, author, title, votes, timeOfPost, comments, image } ) {
+export function Story( { url, video, mediaType, permalink, body, author, title, votes, timeOfPost, comments, image } ) {
    console.log(video)
     const subjectSelection = useSelector(state => state.stories.subject)
     const searchTerm = useSelector(state => state.stories.searchTerm)
@@ -85,15 +88,20 @@ export function Story( { video, mediaType, permalink, body, author, title, votes
         
         dispatch(commentGrabber(link))
     }
+   
+   
+    
     return (
         <div className='storyBox'>
-            <Link onClick={() => handleClick(permalink)} to={`${title}`} state={{ video: `${video}`, mediaType: `${mediaType}`, timeOfPost: `${timeOfPost}`, body: `${body}`, image: `${image}`, title: `${title}`, votes: `${votes}`, author: `${author}`, comments: `${comments}` }}><div className='clickBox'></div></Link>
+            <Link onClick={() => handleClick(permalink)} to={`${title}`} state={{ url: `${url}`, video: `${video}`, mediaType: `${mediaType}`, timeOfPost: `${timeOfPost}`, body: `${body}`, image: `${image}`, title: `${title}`, votes: `${votes}`, author: `${author}`, comments: `${comments}` }}><div className='clickBox'></div></Link>
             <div className='rightStoryBox'>
             <div className='topStoryBox'>
             <div className='leftStoryBox'>
-              <h2 className='topArrow'>^</h2>
+             <img alt='greenarrow' src={greenArrow}
+                    height='15px' width='20px' />
               <h2 style={{fontWeight: '300'}} classname="votes">{votes}</h2>
-              <h2 className='bottomArrow'>^</h2>
+              <img alt='redarrow' src={redArrow}
+                    height='15px' width='20px' style={{transform: 'rotate(180DEG)'}}/>
             </div>
             <h1 className='title' style={{fontSize: '20px'}}>{title}</h1>
             </div>
@@ -135,7 +143,10 @@ export function Story( { video, mediaType, permalink, body, author, title, votes
                     />
                   </video>
                 </div>
-              ) : mediaType === undefined ? null : null}
+              ) : mediaType === 'link' ? (
+               <a className='outsideLink' href={url}>{url}</a>
+              ): mediaType === undefined ? null : null}
+              <p className='postBody'>{body}</p>
             <div className='bottomStoryBox'>
               <h2 style={{fontWeight: '400'}}>{author}</h2><h2 style={{fontWeight: '300', fontStyle: 'italic'}}>{timeSince(timeOfPost) > 1 ? timeSince(timeOfPost) : 'less than 1'} hours ago</h2><h2 style={{fontWeight: '300'}}>{comments} comments</h2>
             </div>

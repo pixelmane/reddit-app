@@ -68,7 +68,7 @@ function Comment( {author, body, postedAt } ){
             <div className="authorBox">
                 <div className="authorHeadingBox">
                     <div className="author">{author}</div>
-                    <div className="authorTimePosted"> {timeSince(postedAt)} hr Ago</div>
+                    <div className="authorTimePosted"> {timeSince(postedAt) > 1 ? timeSince(postedAt) : 'less than 1'} hr Ago</div>
                 </div>
                 <div className="authorBody">{body}</div>
             </div>

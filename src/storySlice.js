@@ -31,6 +31,7 @@ const storyReducer = createSlice({
         comments: []
     },
     reducers: {
+        
         changeSubject: (state, action) => {
             
             state.subject = action.payload
@@ -49,7 +50,7 @@ const storyReducer = createSlice({
             console.log(action.payload)
             let gatheredComments = [];
             let commentArray = action.payload;
-            for (let g = 0; g < commentArray.length; g++){
+            for (let g = 0; g < commentArray.length -1; g++){
                 gatheredComments.push({
                     author: commentArray[g].data.author,
                     body: commentArray[g].data.body,
@@ -86,7 +87,8 @@ const storyReducer = createSlice({
                     body: storyArray[i].data.selftext,
                     permalink: storyArray[i].data.permalink,
                     mediaType: storyArray[i].data.post_hint,
-                    video: storyArray[i].data.media ? storyArray[i].data.media.reddit_video.fallback_url : undefined
+                    video: storyArray[i].data.post_hint === "hosted:video" ? storyArray[i].data.media.reddit_video.fallback_url : undefined,
+                    url: storyArray[i].data.url ? storyArray[i].data.url : undefined
                     
                 })
             }
@@ -99,5 +101,5 @@ const storyReducer = createSlice({
         }
     }
 })
-export const { changeSubject, filterTopics } = storyReducer.actions;
+export const { voteFor, changeSubject, filterTopics } = storyReducer.actions;
 export default storyReducer.reducer; 

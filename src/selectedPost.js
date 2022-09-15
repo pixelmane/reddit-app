@@ -1,12 +1,13 @@
 import { useLocation } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import { Comments } from "./comments.js";
-
+import greenArrow from './green.png';
+import redArrow from './red.png';
 
 function SelectedPost() {
     const location = useLocation()
     
-    const { video, mediaType, timeOfPost, body, image, title, author, votes } = location.state
+    const { url,video, mediaType, timeOfPost, body, image, title, author, votes } = location.state
     
     function timeSince(timePosted){
         
@@ -28,9 +29,11 @@ function SelectedPost() {
             <div className='rightStoryBox'>
             <div className='topStoryBox'>
             <div className='leftStoryBox'>
-              <h2 className='topArrow'>^</h2>
-              <h2 className="votes">{votes}</h2>
-              <h2 className='bottomArrow'>^</h2>
+            <img alt='greenarrow' src={greenArrow}
+                    height='15px' width='20px' />
+              <h2 style={{fontWeight: '300'}} classname="votes">{votes}</h2>
+              <img alt='redarrow' src={redArrow}
+                    height='15px' width='20px' style={{transform: 'rotate(180DEG)'}}/>
             </div>
             <h1 className='title'>{title}</h1>
             
@@ -74,10 +77,12 @@ function SelectedPost() {
                     />
                   </video>
                 </div>
-              ) : mediaType === undefined ? null : null}
-
+              ): mediaType === 'link' ? (
+                <a className='outsideLink' href={url}>{url}</a>
+               ): mediaType === undefined ? null : null}
+                <p className="selectedPostBody">{body}</p>
             <div className='bottomStoryBox'>
-            <div>{body}</div>
+            
               
             </div>
             <Comments />
