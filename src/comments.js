@@ -1,4 +1,5 @@
 
+import Markdown from "markdown-to-jsx"
 import { useSelector } from "react-redux"
 import MyBackgroundImage1 from './a1.png'
 import MyBackgroundImage2 from './a2.png'
@@ -70,7 +71,7 @@ function Comment( {author, body, postedAt } ){
                     <div className="author">{author}</div>
                     <div className="authorTimePosted"> {timeSince(postedAt) > 1 ? timeSince(postedAt) : 'less than 1'} hr Ago</div>
                 </div>
-                <div className="authorBody">{body}</div>
+                <Markdown className="authorBody">{body}</Markdown>
             </div>
             
             
