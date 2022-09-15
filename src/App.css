@@ -342,7 +342,7 @@ margin-left: 10px;
   
   margin: 10px;
   word-wrap: break-word;
- 
+  white-space: normal;
 
   
 }

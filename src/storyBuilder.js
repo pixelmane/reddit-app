@@ -4,6 +4,16 @@ import { Link } from "react-router-dom";
 import { storyGrabber, commentGrabber } from './storySlice.js'
 
 export function StoryFactory(){
+    const subjectSelection = useSelector(state => state.stories.subject)
+    const searchTerm = useSelector(state => state.stories.searchTerm)
+    const subject = useSelector(state => state.stories.subject)
+    let dispatch = useDispatch();
+    useEffect(() => {
+        
+        dispatch(storyGrabber(subject))
+    },
+    // eslint-disable-next-line
+    [subjectSelection, searchTerm])
     const storiesListed = useSelector(state => state.stories.shownStories)
     return(
         

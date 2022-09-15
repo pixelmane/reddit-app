@@ -1,7 +1,7 @@
 
 import './App.css';
 import {  StoryFactory } from './storyBuilder.js'
-import { Story } from './storyBuilder.js';
+
 import { changeSubject } from './storySlice.js'
 import { useDispatch } from 'react-redux';
 import { SearchBar } from './searchBar';
@@ -10,7 +10,7 @@ import { SearchBar } from './searchBar';
 function App() {
   const dispatch = useDispatch()
   function handleChange(e){
-    console.log('subject is changing')
+    
     dispatch(changeSubject(e.target.value))
   }
   return (
@@ -26,12 +26,13 @@ function App() {
                 <option value='walmart'>r/walmart</option>
                 <option value='pets'>r/pets</option>
                 <option value='memes'>r/memes</option>
+                <option><input></input></option>
               </select></div>
      </div>
      
         <div id='scrollCont'>
           <StoryFactory />
-          <Story />
+          
           </div>
         
     </div>
