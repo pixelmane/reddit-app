@@ -80,7 +80,7 @@ function SelectedPost() {
               ): mediaType === 'link' ? (
                 <a className='outsideLink' href={url}>{url}</a>
                ): mediaType === undefined ? null : null}
-                <p className="selectedPostBody">{body}</p>
+                {body ? <p className="selectedPostBody">{body}</p> : null}
             <div className='bottomStoryBox'>
             
               
