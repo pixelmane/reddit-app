@@ -396,7 +396,8 @@ font-size: 14px;
 }
 .authorBody {
  width: 95%;
-  margin: 0 auto;
+  margin: 10px auto;
+
   word-wrap: break-word;
   white-space: normal;
   
