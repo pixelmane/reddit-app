@@ -394,11 +394,11 @@ margin-left: 10px;
   align-items: center;
 }
 .authorBody {
-  
+  width: 100%;
   margin: 10px;
   word-wrap: break-word;
   white-space: normal;
-
+  
 }
 
 .votes {
