@@ -201,6 +201,10 @@ h1 {
   color: black;
   
 }
+html, body {
+  overflow-x: hidden;
+  position: relative;
+}
 #back {
   display: flex;
   color: white;
