@@ -23,9 +23,9 @@ function SelectedPost() {
     <div>
         <Link to='/'><div id='backgroundBlackout'></div></Link>
         <div id='selectedPostContainer'>
-            <Link to='/'><div id='back' ><div id='backLogo'></div></div></Link>
-        <div id='selectedStoryBox'>
             
+        <div id='selectedStoryBox'>
+        <Link to='/'><div id='back' ><div id='backLogo'></div></div></Link>
             <div className='rightStoryBox'>
             <div className='topStoryBox'>
             <div className='leftStoryBox'>
